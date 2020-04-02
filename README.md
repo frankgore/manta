@@ -10,8 +10,9 @@
 1. Clone this repository: `git clone https://github.com/jgrams/manta`
 1. Move into the folder: `cd manta`
 1. Edit the `docker-composer.yml` file by setting the `MYSQL_ROOT_PASSWORD` to your mysql root password.
-1. Prevent your password being pushed to github by running: `git update-index --skip-worktree docker-compose.yml`
-1. Run `docker-compose up`.
+1. Run `cp .env.example .env` 
+1. Prevent your password being pushed to github by running: `git update-index --skip-worktree docker-compose.yml .env`
+1. Run `docker-compose up` and start developing.
 
 #Editing Docker
 
