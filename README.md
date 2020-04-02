@@ -1,10 +1,10 @@
-## Getting Started
+# Getting Started
 
-# Requirements
+## Requirements
 
 1. Install the appropriate version of [Docker](https://docs.docker.com/install) for your local operating system.
 
-# Installation
+## Installation
 1. Move into your projects folder or home directory.
 1. Clone this repository: `git clone https://github.com/jgrams/manta`
 1. Move into the folder: `cd manta`
@@ -21,15 +21,15 @@
 1. Run database migrations by running `docker-compose exec app php artisan migrate` 
 1. Visit `http://localhost:80` and start developing.
 
-# Editing Docker
+## Editing Docker
 
 1. Commit changes to the `docker-compose.yml` file by running `git update-index --no-skip-worktree`, then undoing that action once changes are done.
 
-# Updating
+## Updating
 
 1. Run database migrations with `docker-compose exec app php artisan migrate` check that migrations were not breaking with `docker-compose exec app php artisan tinker` and test the migration by running `\DB::table('migrations')->get();`
 1. Update packages with `docker run --rm -v $(pwd):/app composer update`
 
-# More Information
+## More Information
 
 Set up following Digital Ocean’s [instructions.](https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and-mysql-with-docker-compose)
