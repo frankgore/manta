@@ -18,6 +18,10 @@
 
 1. Commit changes to the `docker-compose.yml` file by running `git update-index --no-skip-worktree`, then undoing that action once changes are done.
 
+#Updating
+
+1. Update package with `docker run --rm -v $(pwd):/app composer update`
+
 #More Information
 
 Set up following Digital Ocean’s [instructions.](https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and-mysql-with-docker-compose)
