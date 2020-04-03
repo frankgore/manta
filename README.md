@@ -18,11 +18,10 @@
 1. Run `GRANT ALL ON manta.* TO 'laravel'@'%' IDENTIFIED BY 'laravel';` updating the values with the `DB_USERNAME` and `DB_PASSWORD` from the `.env`
  file
 1. Run `FLUSH PRIVILEGES;`, then `EXIT;`, then `exit`.
-1. Run database migrations by running `docker-compose exec app php artisan migrate` 
 1. Visit `http://localhost:80` and start developing.
 
 # Running Migrations
-1. Run database migrations with `docker-compose exec app php artisan migrate` check that migrations were not breaking with `docker-compose exec app php artisan tinker` and test the migration by running `\DB::table('migrations')->get();`
+1. Run database migrations with `docker-compose exec app php artisan migrate` check that migrations were not breaking with `docker-compose exec app php artisan tinker`
 
 # Editing Docker
 
