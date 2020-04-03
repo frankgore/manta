@@ -18,6 +18,7 @@
 1. Run `GRANT ALL ON manta.* TO 'laravel'@'%' IDENTIFIED BY 'laravel';` updating the values with the `DB_USERNAME` and `DB_PASSWORD` from the `.env`
  file
 1. Run `FLUSH PRIVILEGES;`, then `EXIT;`, then `exit`.
+1. Run [database migrations](#running-migrations) to get your tables in order.
 1. Visit `http://localhost:80` and start developing.
 
 # Running Migrations
@@ -28,7 +29,8 @@
 1. Commit changes to the `docker-compose.yml` file by running `git update-index --no-skip-worktree`, then undoing that action once changes are done.
 
 # Updating Packages
-1. Update packages with `docker run --rm -v $(pwd):/app composer update`
+1. Update composer packages with `docker run --rm -v $(pwd):/app composer update`
+1. Update npm packages  `docker-compose exec app npm install` 
 
 # More Information
 
