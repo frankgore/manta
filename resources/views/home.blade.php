@@ -21,6 +21,6 @@
     </div>
 </div>
 
-@include('vendors.tile')
+@include('vendors.components.tile')
 
 @endsection
