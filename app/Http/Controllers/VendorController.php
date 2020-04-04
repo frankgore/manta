@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 
 class VendorController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,8 +34,11 @@ class VendorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        return view('vendors.create', ['fields' => [['id' => 'name', 
+                                                     'title' => 'Vendor Name'],
+                                                    ['id' => 'halo_id', 
+                                                     'title' => 'Halo Identifier']]]);
     }
 
     /**
@@ -35,7 +49,11 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'halo_id' => 'required',
+        ]);
+        return url('home');
     }
 
     /**

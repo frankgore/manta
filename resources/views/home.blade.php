@@ -20,4 +20,7 @@
         </div>
     </div>
 </div>
+
+@include('vendors.tile')
+
 @endsection
