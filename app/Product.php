@@ -16,22 +16,32 @@ class Product extends Model
     ];
 
     /**
+     * Return the Vendor associated with this product.
+     *
+     * @var array
+     */
+    public function vendor() {
+    	return $this->belongsTo('App\Vendor');
+    }
+
+    /**
      * The attributes and titles that are displayed on the front end.
      *
      * @var array
      */
     public function fields() {
-    	return [['name' => 'url', 
+    	return [['name' => 'name', 
+                 'title' => 'Name',
+                 'value' => $this->name],
+                ['name' => 'url', 
                  'title' => 'Product URL',
                  'value' => $this->url],
                 ['name' => 'cost', 
                  'title' => 'Cost Per Unit',
                  'value' => $this->cost],
-                 ['name' => 'description', 
+                ['name' => 'description', 
                  'title' => 'Description',
                  'value' => $this->description],
-                ['name' => 'name', 
-                 'title' => 'Name',
-                 'value' => $this->name]];
+];
     }
 }

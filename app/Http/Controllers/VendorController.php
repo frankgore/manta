@@ -50,7 +50,7 @@ class VendorController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'halo_id' => 'required|unique:vendors',
+            'halo_identifier' => 'required|unique:vendors',
         ]);
         Vendor::create($request->all());
         $request->session()->flash('status', 'Vendor created successfully!');
@@ -90,7 +90,7 @@ class VendorController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'halo_id' => 'required|unique:vendors',
+            'halo_identifier' => 'required|unique:vendors',
         ]);
         $vendor->update($request->all());
         $request->session()->flash('status', 'Vendor update successful!');

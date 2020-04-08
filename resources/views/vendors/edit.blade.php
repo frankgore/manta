@@ -8,7 +8,7 @@
             @csrf
             @method('PATCH')
             @foreach ($vendor->fields() as $field)
-                @include('components.textinput', ['field' => $field])
+                @include('components.inputs.text', ['field' => $field])
             @endforeach
             <div class="row justify-content-around">
                 <a href="{{ route('vendors.show', $vendor) }}" class="btn btn-primary">

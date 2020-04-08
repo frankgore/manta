@@ -6,10 +6,14 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\User;
+use App\Product;
+use App\Vendor;
+
 
 class VendorTest extends TestCase
 {   
-
+    use RefreshDatabase;
+   
     /**
      * Test auth is applied.
      *
@@ -48,5 +52,21 @@ class VendorTest extends TestCase
                          ->get('vendors/create');
         $response->assertStatus(200);
         $response->assertViewIs('vendors.create');
+    }
+
+    /**
+     * Test vendor relstionships to products.
+     *
+     * @return void
+     */
+    public function testRelationshipsToProducts()
+    {   
+        $vendor = factory(Vendor::class)->create();
+        $product = factory(Product::class)->create(['vendor_id' => $vendor]);
+        $this->assertEquals($product->id,
+                            $vendor->products()
+                                   ->getResults()
+                                   ->first()
+                                   ->id);
     }
 }

@@ -12,8 +12,16 @@ class Vendor extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'halo_id'
+        'name', 'halo_identifier'
     ];
+
+    /**
+     * Get the products for this vendor.
+     */
+    public function products()
+    {
+        return $this->hasMany('App\Product');
+    }
 
     /**
      * The attributes and titles that are displayed on the front end.
@@ -24,8 +32,8 @@ class Vendor extends Model
     	return [['name' => 'name', 
                  'title' => 'Vendor Name',
                  'value' => $this->name],
-                ['name' => 'halo_id', 
+                ['name' => 'halo_identifier', 
                  'title' => 'Halo Identifier',
-                 'value' => $this->halo_id]];
+                 'value' => $this->halo_identifier]];
     }
 }

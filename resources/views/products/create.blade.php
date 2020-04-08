@@ -10,11 +10,17 @@
             @foreach ($fields as $field)
                 @switch($field['name'])
                     @case('cost')
-                        @include('components.moneyinput', ['field' => $field])
+                        @include('components.inputs.money', ['field' => $field])
+                        @break
+                    @case('url')
+                        @include('components.inputs.url', ['field' => $field])
+                        @break
+                    @case('vendor_id')
+                        @include('components.inputs.url', ['field' => $field])
                         @break
                     @default
-                        @include('components.textinput', ['field' => $field])
-                    @endswitch    
+                        @include('components.inputs.text', ['field' => $field])
+                @endswitch    
             @endforeach
             <button type="submit" class="btn btn-outline-primary">{{__('Submit Product')}}</button>
         </form>

@@ -17,7 +17,7 @@ class CreateVendorsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('halo_id')->unique();
+            $table->string('halo_identifier')->unique();
         });
     }
 

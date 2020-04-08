@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Vendor::class, function (Faker $faker) {
     return [
-        //
+        'name' => $faker->name,
+        'halo_identifier' => $faker->unique()->name
     ];
 });
