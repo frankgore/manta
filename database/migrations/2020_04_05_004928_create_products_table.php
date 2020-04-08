@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
             $table->foreignId('vendor_id')->constrained();
             $table->decimal('cost', 8, 2);
             $table->text('url');
+            $table->text('description');
+            $table->text('name');
         });
     }
 

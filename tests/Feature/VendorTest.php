@@ -23,17 +23,30 @@ class VendorTest extends TestCase
     }
 
     /**
-     * Test the vendors page returns 200 HTTP codes.
+     * Test the vendors index returns 200 HTTP codes.
      *
      * @return void
      */
-    public function testPage()
+    public function testIndex()
     {   
-
         $user = factory(User::class)->make();
         $response = $this->actingAs($user)
-                         ->get('/vendors');
+                         ->get('vendors');
         $response->assertStatus(200);
         $response->assertViewIs('vendors.index');
+    }
+
+    /**
+     * Test the vendors create returns 200 HTTP codes.
+     *
+     * @return void
+     */
+    public function testCreate()
+    {   
+        $user = factory(User::class)->make();
+        $response = $this->actingAs($user)
+                         ->get('vendors/create');
+        $response->assertStatus(200);
+        $response->assertViewIs('vendors.create');
     }
 }

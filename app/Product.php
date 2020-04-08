@@ -12,6 +12,26 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'cost', 'url', 'vendor_id'
+        'cost', 'url', 'vendor_id', 'description', 'name'
     ];
+
+    /**
+     * The attributes and titles that are displayed on the front end.
+     *
+     * @var array
+     */
+    public function fields() {
+    	return [['name' => 'url', 
+                 'title' => 'Product URL',
+                 'value' => $this->url],
+                ['name' => 'cost', 
+                 'title' => 'Cost Per Unit',
+                 'value' => $this->cost],
+                 ['name' => 'description', 
+                 'title' => 'Description',
+                 'value' => $this->description],
+                ['name' => 'name', 
+                 'title' => 'Name',
+                 'value' => $this->name]];
+    }
 }

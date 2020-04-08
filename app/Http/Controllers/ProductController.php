@@ -24,7 +24,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::orderBy('name', 'asc')->paginate(10);
+        return view('products.index', ['products' => $products]);
     }
 
     /**
@@ -32,9 +33,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Product $product)
     {
-        //
+        return view('products.create', 
+                    ['fields' => $product->fields()]);
     }
 
     /**
@@ -45,7 +47,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'url' => 'required',
+        ]);
+        Product::create($request->all());
+        $request->session()->flash('status', 'Product created successfully!');
+        return redirect('products');
     }
 
     /**

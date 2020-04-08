@@ -8,14 +8,14 @@ use Tests\TestCase;
 class ExampleTest extends TestCase
 {
     /**
-     * A basic test example.
+     * Test the Root Route.
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testRootRoute()
     {
         $response = $this->get('/');
-
         $response->assertStatus(302);
+        $response->assertLocation('/login');
     }
 }
