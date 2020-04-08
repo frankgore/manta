@@ -30,7 +30,10 @@
 
 # Updating Packages
 1. Update composer packages with `docker run --rm -v $(pwd):/app composer update`
-1. Update npm packages  `docker-compose exec app npm install` 
+1. Update npm packages  `docker-compose exec app npm update` 
+
+# Testing
+1. Run tests with `docker-compose exec app vendor/bin/phpunit`
 
 # More Information
 
