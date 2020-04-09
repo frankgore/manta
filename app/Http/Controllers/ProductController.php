@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Vendor;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -34,9 +35,11 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Product $product)
-    {
+    {   
+
         return view('products.create', 
-                    ['fields' => $product->fields()]);
+                    ['fields' => $product->fields(),
+                     'vendors' => Vendor::get()->pluck('name', 'id')->sortBy('name')]);
     }
 
     /**
@@ -64,7 +67,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('products.show', $product);
     }
 
     /**

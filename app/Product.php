@@ -42,6 +42,8 @@ class Product extends Model
                 ['name' => 'description', 
                  'title' => 'Description',
                  'value' => $this->description],
-];
+                ['name' => 'vendor_id', 
+                 'title' => 'Vendor',
+                 'value' => $this->vendor_id]];
     }
 }

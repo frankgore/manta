@@ -16,7 +16,7 @@
                         @include('components.inputs.url', ['field' => $field])
                         @break
                     @case('vendor_id')
-                        @include('components.inputs.url', ['field' => $field])
+                        @include('components.inputs.dropdown', ['field' => $field, 'options' => $vendors])
                         @break
                     @default
                         @include('components.inputs.text', ['field' => $field])
@@ -26,5 +26,5 @@
         </form>
     </div>
 </div>
-
+asdfasdfasdf
 @endsection

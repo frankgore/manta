@@ -12,12 +12,11 @@
 1. Run `cp .env.example .env` then edit any any necessary fields, you'll have to input a mysql user and password here. 
 1. Prevent your password being pushed to github by running: `git update-index --skip-worktree docker-compose.yml .env`
 1. Run `docker-compose up`
-1. Run `docker-compose exec app php artisan key:generate` to generate a key and copy it to your .env file
-1. Run `docker-compose exec app php artisan config:cache` to cache the `.env` file and improve performance. Your configuration settings will be loaded into `/var/www/bootstrap/cache/config.php` on the container.
 1. To create a non-root user for the Laravel application to use with MySql run `docker-compose exec db bash` then run `mysql -u root -p`, using the root password you set in your `docker-compose.yml` file.
 1. Run `GRANT ALL ON manta.* TO 'laravel'@'%' IDENTIFIED BY 'laravel';` updating the values with the `DB_USERNAME` and `DB_PASSWORD` from the `.env`
  file
 1. Run `FLUSH PRIVILEGES;`, then `EXIT;`, then `exit`.
+1. Run `docker-compose exec app php artisan key:generate` to generate a key and copy it to your .env file
 1. Run [database migrations](#running-migrations) to get your tables in order.
 1. Visit `http://localhost:80` and start developing.
 
@@ -34,6 +33,9 @@
 
 # Testing
 1. Run tests with `docker-compose exec app vendor/bin/phpunit`
+
+# Production Releases
+1 1. Run `docker-compose exec app php artisan config:cache` to cache the `.env` file and improve performance. Your configuration settings will be loaded into `/var/www/bootstrap/cache/config.php` on the container.
 
 # More Information
 

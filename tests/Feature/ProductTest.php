@@ -11,6 +11,7 @@ use App\Vendor;
 
 class ProductTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic feature test example.
      *
@@ -23,19 +24,19 @@ class ProductTest extends TestCase
         $response->assertLocation('/login');
     }
 
-    // /**
-    //  * A basic feature test example.
-    //  *
-    //  * @return void
-    //  */
-    // public function testIndex()
-    // {
-    //     $user = factory(User::class)->make();
-    //     $response = $this->actingAs($user)
-    //                      ->get('/products');
-    //     $response->assertStatus(200);
-    //     $response->assertViewIs('products.index');
-    // }
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function testIndex()
+    {
+        $user = factory(User::class)->make();
+        $response = $this->actingAs($user)
+                         ->get('/products');
+        $response->assertStatus(200);
+        $response->assertViewIs('products.index');
+    }
 
     /**
      * A basic feature test example.
