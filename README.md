@@ -11,6 +11,8 @@
 1. Edit the `docker-composer.yml` file by setting the `MYSQL_ROOT_PASSWORD` to a mysql root password for the container.
 1. Run `cp .env.example .env` then edit any any necessary fields, you'll have to input a mysql user and password here. 
 1. Prevent your password being pushed to github by running: `git update-index --skip-worktree docker-compose.yml .env`
+1. Run `sudo chown -R $USER:$USER ~/laravel-app
+`
 1. Run `docker-compose up`
 1. Run `docker run --rm -v $(pwd):/app composer install`
 to install dependencies.
