@@ -112,7 +112,7 @@ class VendorController extends Controller
     }
 
     /**
-     * Show the form for deleting the specified resource.
+     * Show the confirmation form for deleting the specified resource.
      *
      * @param  \App\Vendor  $vendor
      * @return \Illuminate\Http\Response

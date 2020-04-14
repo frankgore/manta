@@ -8,7 +8,7 @@
         <form action="{{ action('VendorController@store') }}" method="POST" >
             @csrf
             @foreach ($fields as $field)
-                @include('components.inputs.text', ['field' => $field])
+                @include($field['blade'], ['field' => $field])
             @endforeach
             <button type="submit" class="btn btn-outline-primary">{{__('Submit Vendor')}}</button>
         </form>

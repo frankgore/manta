@@ -67,7 +67,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('products.show', $product);
+        return view('products.show', ['product' => $product]);
     }
 
     /**
@@ -78,7 +78,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('products.edit', ['product' => $product]);
     }
 
     /**
@@ -90,8 +90,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
-    }
+        $product->update($request->all());
+        $request->session()->flash('status', 'Product update successful!');
+        return redirect('products');    }
 
     /**
      * Remove the specified resource from storage.
@@ -101,6 +102,23 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        $request->session()->flash('status', 'Product deleted sucessfully!');
+        return redirect('products');
+    }
+
+    /**
+     * Show the confirmation form for deleting the specified resource.
+     *
+     * @param  \App\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function remove(Product $product)
+    {   
+        return view('components.confirm', ['object' => $product,
+                                           'method' => 'delete',
+                                           'button' => 'Delete Product',
+                                           'cancel' => 'ProductController@index',
+                                           'confirm' => 'ProductController@destroy']);
     }
 }

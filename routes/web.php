@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::resource('vendors', 'VendorController');
 Route::resource('products', 'ProductController');
 Route::get('/vendors/remove/{vendor}', 'VendorController@remove')->name('vendors.remove');
+Route::get('/products/remove/{product}', 'ProductController@remove')->name('products.remove');
 
 Auth::routes();
 

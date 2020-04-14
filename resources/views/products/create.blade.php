@@ -8,23 +8,11 @@
         <form action="{{ route('products.store') }}" method="POST" >
             @csrf
             @foreach ($fields as $field)
-                @switch($field['name'])
-                    @case('cost')
-                        @include('components.inputs.money', ['field' => $field])
-                        @break
-                    @case('url')
-                        @include('components.inputs.url', ['field' => $field])
-                        @break
-                    @case('vendor_id')
-                        @include('components.inputs.dropdown', ['field' => $field, 'options' => $vendors])
-                        @break
-                    @default
-                        @include('components.inputs.text', ['field' => $field])
-                @endswitch    
+                @include($field['blade'], $field)   
             @endforeach
             <button type="submit" class="btn btn-outline-primary">{{__('Submit Product')}}</button>
         </form>
     </div>
 </div>
-asdfasdfasdf
+
 @endsection

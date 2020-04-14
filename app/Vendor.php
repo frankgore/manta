@@ -31,9 +31,11 @@ class Vendor extends Model
     public function fields() {
     	return [['name' => 'name', 
                  'title' => 'Vendor Name',
-                 'value' => $this->name],
+                 'value' => $this->name,
+                 'blade' => 'components.inputs.text'],
                 ['name' => 'halo_identifier', 
                  'title' => 'Halo Identifier',
-                 'value' => $this->halo_identifier]];
+                 'value' => $this->halo_identifier,
+                 'blade' => 'components.inputs.text']];
     }
 }

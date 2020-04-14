@@ -32,18 +32,23 @@ class Product extends Model
     public function fields() {
     	return [['name' => 'name', 
                  'title' => 'Name',
-                 'value' => $this->name],
+                 'value' => $this->name,
+                 'blade' => 'components.inputs.text'],
                 ['name' => 'url', 
                  'title' => 'Product URL',
-                 'value' => $this->url],
+                 'value' => $this->url,
+                 'blade' => 'components.inputs.url'],
                 ['name' => 'cost', 
                  'title' => 'Cost Per Unit',
-                 'value' => $this->cost],
+                 'value' => $this->cost,
+                 'blade' => 'components.inputs.money'],
                 ['name' => 'description', 
                  'title' => 'Description',
-                 'value' => $this->description],
+                 'value' => $this->description,
+                 'blade' => 'components.inputs.text'],
                 ['name' => 'vendor_id', 
                  'title' => 'Vendor',
-                 'value' => $this->vendor_id]];
+                 'value' => $this->vendor_id,
+                 'blade' => 'components.inputs.text']];
     }
 }

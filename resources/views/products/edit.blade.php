@@ -2,9 +2,10 @@
 
 @section('content')
 
-@include('components.show', 
+@include('components.edit', 
          ['object' => $product, 
           'back' => 'products.index',
-          'edit' => 'products.edit']);
+          'delete' => 'products.remove',
+          'update' => 'products.update'])
 
 @endsection
